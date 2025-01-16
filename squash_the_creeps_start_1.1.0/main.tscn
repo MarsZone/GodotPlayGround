@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dquqxtbm88q5d"]
+
+[ext_resource type="PackedScene" uid="uid://bmj8huurk2l05" path="res://player.tscn" id="1_7q3nn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4j63"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_37cdb"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xn34o"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.32982e-08, 0.137168, -0.990548, 5.9958e-09, 0.990548, 0.137168, 1, 8.57914e-16, -4.37114e-08, -12, 15, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_g4j63")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_37cdb")
+
+[node name="Player" parent="." instance=ExtResource("1_7q3nn")]
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.389863, 0.920873, 0, -0.920873, 0.389863, 0, 15.1101, 8)
+projection = 1
+size = 19.0
+
+[node name="Cylinders" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -9)
+mesh = SubResource("CylinderMesh_xn34o")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 11.1)
+mesh = SubResource("CylinderMesh_xn34o")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -9)
+mesh = SubResource("CylinderMesh_xn34o")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Cylinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 11.1)
+mesh = SubResource("CylinderMesh_xn34o")
