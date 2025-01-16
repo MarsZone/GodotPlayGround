@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dnbtwl4svgbum" path="res://art/mob.glb" id="1_jtd45"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_11y5n"]
-size = Vector3(1.71458, 0.822632, 2.16907)
+size = Vector3(2.14157, 0.822632, 2.28519)
 
-[node name="Mob" type="CharacterBody3D"]
+[node name="Mob" type="CharacterBody3D" groups=["mob"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_6jkqd")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -14,7 +16,7 @@ script = ExtResource("1_6jkqd")
 [node name="Character" parent="Pivot" instance=ExtResource("1_jtd45")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351446, 0.232605, 0.0171876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0932007, 0.232605, -0.0408711)
 shape = SubResource("BoxShape3D_11y5n")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
